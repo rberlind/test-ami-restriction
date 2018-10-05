@@ -15,7 +15,7 @@ data "aws_ami" "source" {
 
   filter {
     name   = "name"
-    values = ["${title(var.name)}"]
+    values = ["${var.name}"]
   }
 
 }

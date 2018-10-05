@@ -14,13 +14,6 @@ data "aws_ami" "source" {
   owners      = ["${var.ami_owner}"]
 }
 
-# Add fake resource to make sure that TFE runs this each time
-resource "null_resource" "fake" {
-   triggers {
-      uuid = "${uuid()}"
-   }
-}
-
 resource "aws_instance" "web" {
   provider = "aws.${var.source_region}"
   ami           = "${data.aws_ami.source.id}"

@@ -12,12 +12,6 @@ data "aws_ami" "source" {
 
   most_recent = true
   owners      = ["${var.ami_owner}"]
-
-  /*filter {
-    name   = "name"
-    values = ["${var.name}"]
-  }*/
-
 }
 
 # Add fake resource to make sure that TFE runs this each time

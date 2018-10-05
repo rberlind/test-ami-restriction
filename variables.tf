@@ -7,8 +7,3 @@ variable "ami_owner" {
   description = "Owner of AMI."
   default     = "self"
 }
-
-variable "name" {
-  description = "Name of AMI"
-  default = "ubuntu-14-04"
-}

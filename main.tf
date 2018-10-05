@@ -14,8 +14,8 @@ data "aws_ami" "source" {
   owners      = ["${var.ami_owner}"]
 
   filter {
-    name   = "platform"
-    values = ["${title(var.platform)}"]
+    name   = "name"
+    values = ["${title(var.name)}"]
   }
 
 }

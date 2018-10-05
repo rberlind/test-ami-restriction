@@ -8,7 +8,7 @@ variable "ami_owner" {
   default     = "self"
 }
 
-variable "platform" {
-  description = "Platform of AMI"
-  default = "Ubuntu"
+variable "name" {
+  description = "Name of AMI"
+  default = "ubuntu-14-04"
 }

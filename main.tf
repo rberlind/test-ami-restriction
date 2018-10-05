@@ -13,9 +13,9 @@ data "aws_ami" "source" {
   most_recent = true
   owners      = ["${var.ami_owner}"]
 
-  filter {
+  /*filter {
     name   = "name"
     values = ["${var.name}"]
-  }
+  }*/
 
 }

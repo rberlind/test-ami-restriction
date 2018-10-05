@@ -22,6 +22,7 @@ resource "null_resource" "fake" {
 }
 
 resource "aws_instance" "web" {
+  provider = "aws.${var.source_region}"
   ami           = "${data.aws_ami.source.id}"
   instance_type = "t2.micro"
 

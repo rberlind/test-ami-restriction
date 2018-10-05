@@ -17,9 +17,11 @@ data "aws_ami" "source" {
 resource "aws_instance" "web" {
   provider = "aws.${var.source_region}"
   ami           = "${data.aws_ami.source.id}"
-  instance_type = "t2.micro"
+  instance_type = "t2.small"
 
   tags {
     Name = "HelloWorld"
+    TTL = "24"
+    owner = "roger@hashicorp.com"
   }
 }

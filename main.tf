@@ -65,3 +65,11 @@ data "aws_ami" "source" {
     values = ["hvm"]
   }
 }
+
+resource "aws_ami_launch_permission" "source" {
+  provider = "aws.${var.source_region}"
+  count    = "${length(var.enabled_accounts) * length(data.aws_ami.source.*.id)}"
+
+  image_id   = "${element(data.aws_ami.source.*.id, count.index % length(data.aws_ami.source.*.id))}"
+  account_id = "${var.enabled_accounts[floor(count.index / length(data.aws_ami.source.*.id))]}"
+}
